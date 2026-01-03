@@ -1,16 +1,20 @@
 import Link from "next/link";
 import CardBTN from "./CardBTN";
+import Image from "next/image";
 
 const FoodCard = ({ food }) => {
     return (
         <div className=" bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
             {/* Image */}
             <div className="relative">
-                <img
+                {/* <img
                     src={food.foodImg}
                     alt={food.title}
                     className="w-full h-80 object-cover"
-                />
+                /> */}
+                <Image width={200} height={320} src={food.foodImg}
+                    alt={food.title}
+                    className="w-full h-80 object-cover"></Image>
                 <span className="absolute top-3 left-3 bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
                     {food.category}
                 </span>

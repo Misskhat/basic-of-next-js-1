@@ -1,4 +1,16 @@
+import Image from "next/image";
 import React from "react";
+
+export async function generateMetadata({ params }) {
+    const { id } = await params;
+    const res = await fetch(
+        `https://taxi-kitchen-api.vercel.app/api/v1/foods/${id}`
+    );
+    const { details = {} } = await res.json();
+    return {
+        title: details.title,
+    }
+}
 
 const singleFoodDetails = async (id) => {
     const res = await fetch(
@@ -22,11 +34,14 @@ const page = async ({ params }) => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {/* Image */}
                 <div className="rounded-2xl overflow-hidden shadow-lg">
-                    <img
+                    {/* <img
                         src={food?.foodImg}
                         alt={food?.title}
                         className="w-full h-full object-cover"
-                    />
+                    /> */}
+                    <Image width={300} height={200} src={food?.foodImg}
+                        alt={food?.title}
+                        className="w-full h-full object-cover"></Image>
                 </div>
 
                 {/* Details */}
