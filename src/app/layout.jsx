@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import CardProvider from "@/context/CardProvider";
@@ -14,6 +14,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const poppins = Poppins({
+  weight: ['400', '500', '700'],
+  subsets: ['latin']
+})
+
 export const metadata = {
   title: {
     default: "Yantun Khaijan",
@@ -26,7 +31,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.className} antialiased`}
       >
         <header className="flex justify-between items-center px-5 py-2 bg-slate-800">
           <Link href={'/'}><Image width={120} height={120} src="/logo.png" alt="" className="w-[120px]" /></Link>
