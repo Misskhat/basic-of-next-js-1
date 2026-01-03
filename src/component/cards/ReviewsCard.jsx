@@ -1,6 +1,11 @@
 "use client";
+import { Anek_Bangla } from "next/font/google";
 import Image from "next/image";
 import React, { useState } from "react";
+
+const anek = Anek_Bangla({
+    weight: ['400']
+})
 
 const ReviewsCard = ({ review }) => {
     const [liked, setLiked] = useState(false);
@@ -12,7 +17,7 @@ const ReviewsCard = ({ review }) => {
     };
 
     return (
-        <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition">
+        <div className={`${anek.className} bg-white rounded-2xl shadow-md p-6 hover:shadow-lg transition`}>
             {/* Header */}
             <div className="flex items-center gap-4 mb-4">
                 {/* <img
